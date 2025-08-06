@@ -3,195 +3,1542 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DevTemplates - Portfólios Profissionais Prontos</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>PortfolioPro - Templates Profissionais para Seu Sucesso</title>
+    <meta name="description" content="Templates de portfólio HTML/CSS premium para desenvolvedores, designers e freelancers. Prontos para usar, 100% responsivos e fáceis de personalizar.">
+    
+    <!-- Favicon e Apple Touch Icon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    
+    <!-- Fontes -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS -->
     <style>
-        /* [Seu CSS anterior permanece igual] */
-        
-        /* Novo: Seletor de Idiomas */
-        .language-selector {
-            position: relative;
-            margin-left: 20px;
+        :root {
+            --primary: #4361ee;
+            --primary-dark: #3a56d4;
+            --secondary: #3f37c9;
+            --dark: #1a1a2e;
+            --light: #f8f9fa;
+            --gray: #6c757d;
+            --light-gray: #e9ecef;
+            --success: #4cc9f0;
+            --warning: #f8961e;
+            --danger: #ef233c;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
-        
-        .language-button {
-            background: none;
-            border: none;
-            color: var(--texto);
-            cursor: pointer;
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark);
+            line-height: 1.6;
+            background-color: var(--light);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.2;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.98);
+            box-shadow: var(--shadow);
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+            transition: var(--transition);
+        }
+
+        header.scrolled {
+            padding: 10px 0;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
             display: flex;
             align-items: center;
-            gap: 5px;
+            gap: 10px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
         }
-        
-        .language-dropdown {
-            display: none;
+
+        .logo img {
+            height: 40px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            position: relative;
+            padding: 5px 0;
+            transition: var(--transition);
+        }
+
+        .nav-link::after {
+            content: '';
             position: absolute;
-            right: 0;
-            background: white;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: var(--transition);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            background-color: var(--primary);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: var(--transition);
+            margin-left: 20px;
+        }
+
+        .nav-cta:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--dark);
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 180px 0 100px;
+            background: linear-gradient(135deg, #f6f9fc 0%, #eef2f5 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(67, 97, 238, 0.08) 0%, rgba(67, 97, 238, 0) 70%);
+        }
+
+        .hero-container {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+
+        .hero-title span {
+            color: var(--primary);
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--gray);
+            margin-bottom: 30px;
+            max-width: 600px;
+        }
+
+        .hero-cta {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 15px 35px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            box-shadow: 0 10px 20px rgba(67, 97, 238, 0.3);
+        }
+
+        .hero-cta:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(67, 97, 238, 0.4);
+        }
+
+        .hero-image {
+            flex: 1;
+            position: relative;
+        }
+
+        .hero-image img {
+            border-radius: 10px;
+            box-shadow: var(--shadow-lg);
+            transform: perspective(1000px) rotateY(-10deg);
+            transition: var(--transition);
+        }
+
+        .hero-image:hover img {
+            transform: perspective(1000px) rotateY(-5deg);
+        }
+
+        .hero-badge {
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            background-color: var(--warning);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            box-shadow: var(--shadow);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        /* Features Section */
+        .features {
+            padding: 100px 0;
+            background-color: white;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto 60px;
+            font-size: 1.1rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid var(--light-gray);
+            text-align: center;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            background-color: rgba(67, 97, 238, 0.1);
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+        }
+
+        .feature-title {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .feature-description {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+
+        /* Templates Section */
+        .templates {
+            padding: 100px 0;
+            background-color: var(--light);
+        }
+
+        .templates-filter {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: none;
+            border: 1px solid var(--light-gray);
+            padding: 8px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background-color: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .templates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .template-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .template-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .template-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: var(--warning);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 2;
+        }
+
+        .template-image {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .template-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .template-card:hover .template-image img {
+            transform: scale(1.05);
+        }
+
+        .template-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .template-card:hover .template-overlay {
+            opacity: 1;
+        }
+
+        .template-link {
+            color: white;
+            font-size: 1.5rem;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            backdrop-filter: blur(5px);
+        }
+
+        .template-link:hover {
+            background-color: var(--primary);
+            transform: scale(1.1);
+        }
+
+        .template-content {
+            padding: 20px;
+        }
+
+        .template-title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        .template-description {
+            color: var(--gray);
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+
+        .template-price {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 15px;
+        }
+
+        .price-current {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .price-original {
+            font-size: 1rem;
+            color: var(--gray);
+            text-decoration: line-through;
+        }
+
+        .template-btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 8px 20px;
             border-radius: 5px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            z-index: 100;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
         }
-        
-        .language-dropdown a {
+
+        .template-btn:hover {
+            background-color: var(--primary-dark);
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: 100px 0;
+            background-color: white;
+        }
+
+        .testimonials-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            background-color: var(--light);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 5rem;
+            color: rgba(67, 97, 238, 0.1);
+            font-family: serif;
+            line-height: 1;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            color: var(--dark);
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 15px;
+            border: 3px solid var(--primary);
+        }
+
+        .author-info h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            color: var(--dark);
+        }
+
+        .author-info p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            padding: 100px 0;
+            background-color: var(--light);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .pricing-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 40px 30px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+            position: relative;
+            border: 1px solid var(--light-gray);
+        }
+
+        .pricing-card.popular {
+            border: 2px solid var(--primary);
+            transform: scale(1.05);
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: -15px;
+            right: 20px;
+            background-color: var(--primary);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .pricing-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .pricing-price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .pricing-period {
+            font-size: 1rem;
+            color: var(--gray);
+        }
+
+        .pricing-features {
+            margin-bottom: 30px;
+        }
+
+        .pricing-feature {
+            margin-bottom: 10px;
+            color: var(--gray);
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .pricing-feature::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 2px;
+            color: var(--success);
+        }
+
+        .pricing-btn {
             display: block;
-            padding: 8px 15px;
-            color: var(--texto);
-            text-decoration: none;
+            width: 100%;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
         }
-        
-        .language-dropdown a:hover {
-            background: #f1f5f9;
+
+        .pricing-btn:hover {
+            background-color: var(--primary-dark);
         }
-        
-        .show-dropdown {
-            display: block;
+
+        /* FAQ Section */
+        .faq {
+            padding: 100px 0;
+            background-color: white;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            margin-bottom: 15px;
+            border: 1px solid var(--light-gray);
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            background-color: var(--light);
+            padding: 15px 20px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .faq-question:hover {
+            background-color: rgba(67, 97, 238, 0.1);
+        }
+
+        .faq-question::after {
+            content: '\f078';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            transition: var(--transition);
+        }
+
+        .faq-item.active .faq-question::after {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 20px;
+            max-height: 500px;
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .cta-title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-subtitle {
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.9;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background-color: white;
+            color: var(--primary);
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 80px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .footer-about {
+            margin-bottom: 20px;
+            opacity: 0.8;
+            font-size: 0.95rem;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .footer-title {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-link {
+            margin-bottom: 10px;
+            opacity: 0.8;
+            transition: var(--transition);
+            font-size: 0.95rem;
+        }
+
+        .footer-link:hover {
+            opacity: 1;
+            color: var(--primary);
+            padding-left: 5px;
+        }
+
+        .footer-contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+            opacity: 0.8;
+            font-size: 0.95rem;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        /* Responsivo */
+        @media (max-width: 992px) {
+            .hero-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .hero-content {
+                margin-bottom: 50px;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero {
+                padding: 150px 0 80px;
+            }
+            
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            
+            .templates-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .pricing-card.popular {
+                transform: none;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-title {
+                font-size: 1.8rem;
+            }
+            
+            .hero-cta {
+                padding: 12px 25px;
+                font-size: 1rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .section-subtitle {
+                font-size: 1rem;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .footer-social {
+                justify-content: center;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Header com seletor de idiomas -->
-    <header>
+    <!-- Header -->
+    <header id="header">
         <div class="container">
-            <div class="header-content">
-                <a href="#" class="logo">Dev<span>Templates</span></a>
+            <div class="header-container">
+                <a href="#" class="logo">
+                    <img src="logo.svg" alt="PortfolioPro">
+                    Portfolio<span>Pro</span>
+                </a>
+                
                 <nav>
-                    <a href="#products" data-translate="nav.templates">Templates</a>
-                    <a href="#features" data-translate="nav.features">Vantagens</a>
-                    <a href="#pix" data-translate="nav.payment">Pagamento</a>
-                    <div class="language-selector">
-                        <button class="language-button" onclick="toggleDropdown()">
-                            <i class="fas fa-globe"></i> <span id="current-language">PT</span>
-                        </button>
-                        <div class="language-dropdown" id="languageDropdown">
-                            <a href="#" onclick="changeLanguage('pt')">Português (PT)</a>
-                            <a href="#" onclick="changeLanguage('en')">English (EN)</a>
-                            <a href="#" onclick="changeLanguage('es')">Español (ES)</a>
-                            <a href="#" onclick="changeLanguage('fr')">Français (FR)</a>
-                            <a href="#" onclick="changeLanguage('de')">Deutsch (DE)</a>
-                            <a href="#" onclick="changeLanguage('it')">Italiano (IT)</a>
-                        </div>
+                    <div class="nav-links">
+                        <a href="#features" class="nav-link">Recursos</a>
+                        <a href="#templates" class="nav-link">Templates</a>
+                        <a href="#pricing" class="nav-link">Preços</a>
+                        <a href="#testimonials" class="nav-link">Depoimentos</a>
+                        <a href="#faq" class="nav-link">FAQ</a>
+                        <a href="#contact" class="nav-link">Contato</a>
                     </div>
+                    
+                    <a href="#pricing" class="nav-cta">Comprar Agora</a>
+                    
+                    <button class="mobile-menu-btn">
+                        <i class="fas fa-bars"></i>
+                    </button>
                 </nav>
             </div>
         </div>
     </header>
 
-    <!-- [Restante do HTML permanece igual, mas todos os textos devem ter data-translate] -->
-    <!-- Exemplo na seção hero: -->
+    <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <h1 data-translate="hero.title">Portfólios Profissionais Prontos</h1>
-            <p data-translate="hero.subtitle">Templates HTML/CSS premium para desenvolvedores, designers e freelancers. Personalize em minutos e impressione seus clientes!</p>
-            <a href="#products" class="cta-button" data-translate="hero.button">Ver Templates</a>
+            <div class="hero-container">
+                <div class="hero-content">
+                    <h1 class="hero-title">Seu <span>Portfólio</span> Profissional em Minutos</h1>
+                    <p class="hero-subtitle">Templates HTML/CSS premium para desenvolvedores, designers e freelancers. Personalize em minutos e impressione seus clientes!</p>
+                    <a href="#templates" class="hero-cta">Ver Templates</a>
+                </div>
+                
+                <div class="hero-image">
+                    <div class="hero-badge">MAIS VENDIDO 2023</div>
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Template Preview">
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- [Todas outras seções seguem o mesmo padrão...] -->
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title">Por que nossos templates?</h2>
+            <p class="section-subtitle">Desenvolvidos para ajudar profissionais criativos a se destacarem no mercado</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3 class="feature-title">100% Responsivo</h3>
+                    <p class="feature-description">Funciona perfeitamente em todos os dispositivos, de smartphones a desktops com telas grandes.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3 class="feature-title">Performance Otimizada</h3>
+                    <p class="feature-description">Código limpo e otimizado para carregamento ultrarrápido e melhor SEO.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3 class="feature-title">Fácil Personalização</h3>
+                    <p class="feature-description">Código bem organizado e comentado, com documentação detalhada.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3 class="feature-title">Design Moderno</h3>
+                    <p class="feature-description">Interface profissional com atenção aos detalhes de tipografia e espaçamento.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3 class="feature-title">Suporte Prioritário</h3>
+                    <p class="feature-description">Equipe especializada pronta para te ajudar com qualquer dúvida.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <h3 class="feature-title">Atualizações Gratuitas</h3>
+                    <p class="feature-description">Receba todas as melhorias e novos recursos sem custo adicional.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Templates Section -->
+    <section class="templates" id="templates">
+        <div class="container">
+            <h2 class="section-title">Nossos Templates</h2>
+            <p class="section-subtitle">Escolha o design que melhor combina com seu estilo profissional</p>
+            
+            <div class="templates-filter">
+                <button class="filter-btn active" data-filter="all">Todos</button>
+                <button class="filter-btn" data-filter="dev">Desenvolvedor</button>
+                <button class="filter-btn" data-filter="design">Designer</button>
+                <button class="filter-btn" data-filter="photography">Fotógrafo</button>
+                <button class="filter-btn" data-filter="minimal">Minimalista</button>
+            </div>
+            
+            <div class="templates-grid">
+                <!-- Template 1 -->
+                <div class="template-card" data-category="dev">
+                    <div class="template-badge">Mais Popular</div>
+                    <div class="template-image">
+                        <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Dark Portfolio">
+                        <div class="template-overlay">
+                            <a href="#" class="template-link" title="Visualizar Demo">
+                                <i class="fas fa-eye"></i>
+                            </a>
+                            <a href="#" class="template-link" title="Ver Código">
+                                <i class="fas fa-code"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="template-content">
+                        <h3 class="template-title">Dark Developer</h3>
+                        <p class="template-description">Portfólio moderno com modo escuro, efeitos de partículas e seção de projetos organizada.</p>
+                        <div class="template-price">
+                            <div>
+                                <span class="price-current">R$ 49,90</span>
+                                <span class="price-original">R$ 89,90</span>
+                            </div>
+                            <button class="template-btn">Comprar</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Template 2 -->
+                <div class="template-card" data-category="design">
+                    <div class="template-image">
+                        <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Neon Portfolio">
+                        <div class="template-overlay">
+                            <a href="#" class="template-link" title="Visualizar Demo">
+                                <i class="fas fa-eye"></i>
+                            </a>
+                            <a href="#" class="template-link" title="Ver Código">
+                                <i class="fas fa-code"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="template-content">
+                        <h3 class="template-title">Neon Design</h3>
+                        <p class="template-description">Design ousado com efeitos neon e animações modernas para designers criativos.</p>
+                        <div class="template-price">
+                            <div>
+                                <span class="price-current">R$ 54,90</span>
+                                <span class="price-original">R$ 99,90</span>
+                            </div>
+                            <button class="template-btn">Comprar</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Template 3 -->
+                <div class="template-card" data-category="minimal">
+                    <div class="template-image">
+                        <img src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Minimal Portfolio">
+                        <div class="template-overlay">
+                            <a href="#" class="template-link" title="Visualizar Demo">
+                                <i class="fas fa-eye"></i>
+                            </a>
+                            <a href="#" class="template-link" title="Ver Código">
+                                <i class="fas fa-code"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="template-content">
+                        <h3 class="template-title">Minimal Pro</h3>
+                        <p class="template-description">Design limpo e profissional com foco no conteúdo e usabilidade.</p>
+                        <div class="template-price">
+                            <div>
+                                <span class="price-current">R$ 39,90</span>
+                                <span class="price-original">R$ 69,90</span>
+                            </div>
+                            <button class="template-btn">Comprar</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Template 4 -->
+                <div class="template-card" data-category="photography">
+                    <div class="template-image">
+                        <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Photography Portfolio">
+                        <div class="template-overlay">
+                            <a href="#" class="template-link" title="Visualizar Demo">
+                                <i class="fas fa-eye"></i>
+                            </a>
+                            <a href="#" class="template-link" title="Ver Código">
+                                <i class="fas fa-code"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="template-content">
+                        <h3 class="template-title">Photo Gallery</h3>
+                        <p class="template-description">Portfólio visual com galeria fullscreen e lightbox para fotógrafos.</p>
+                        <div class="template-price">
+                            <div>
+                                <span class="price-current">R$ 59,90</span>
+                                <span class="price-original">R$ 109,90</span>
+                            </div>
+                            <button class="template-btn">Comprar</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Template 5 -->
+                <div class="template-card" data-category="dev">
+                    <div class="template-image">
+                        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Code Portfolio">
+                        <div class="template-overlay">
+                            <a href="#" class="template-link" title="Visualizar Demo">
+                                <i class="fas fa-eye"></i>
+                            </a>
+                            <a href="#" class="template-link" title="Ver Código">
+                                <i class="fas fa-code"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="template-content">
+                        <h3 class="template-title">Code Master</h3>
+                        <p class="template-description">Template técnico com syntax highlighting e seção de repositórios GitHub.</p>
+                        <div class="template-price">
+                            <div>
+                                <span class="price-current">R$ 49,90</span>
+                                <span class="price-original">R$ 89,90</span>
+                            </div>
+                            <button class="template-btn">Comprar</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Template 6 -->
+                <div class="template-card" data-category="design">
+                    <div class="template-image">
+                        <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Creative Portfolio">
+                        <div class="template-overlay">
+                            <a href="#" class="template-link" title="Visualizar Demo">
+                                <i class="fas fa-eye"></i>
+                            </a>
+                            <a href="#" class="template-link" title="Ver Código">
+                                <i class="fas fa-code"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="template-content">
+                        <h3 class="template-title">Creative Mind</h3>
+                        <p class="template-description">Design experimental com layouts quebrados e efeitos de parallax.</p>
+                        <div class="template-price">
+                            <div>
+                                <span class="price-current">R$ 64,90</span>
+                                <span class="price-original">R$ 119,90</span>
+                            </div>
+                            <button class="template-btn">Comprar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <h2 class="section-title">O que dizem nossos clientes</h2>
+            <p class="section-subtitle">Mais de 500 profissionais já transformaram seus portfólios com nossos templates</p>
+            
+            <div class="testimonials-container">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"O template Dark Developer foi exatamente o que eu precisava para mostrar meus projetos de forma profissional. Em menos de 1 hora já tinha meu portfólio online e recebi vários elogios de recrutadores!"</p>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Carlos Silva" class="author-avatar">
+                        <div class="author-info">
+                            <h4>Carlos Silva</h4>
+                            <p>Desenvolvedor Front-end</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Como designer, estou acostumada a exigir muito dos detalhes visuais. Fiquei impressionada com a qualidade do template Neon Design - o código é tão bem organizado quanto o design é bonito!"</p>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Ana Oliveira" class="author-avatar">
+                        <div class="author-info">
+                            <h4>Ana Oliveira</h4>
+                            <p>UI/UX Designer</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Comprei o pacote completo e valeu cada centavo. A documentação é tão clara que mesmo sendo iniciante em HTML consegui personalizar tudo exatamente como queria em poucas horas."</p>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Ricardo Fernandes" class="author-avatar">
+                        <div class="author-info">
+                            <h4>Ricardo Fernandes</h4>
+                            <p>Fotógrafo Profissional</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <h2 class="section-title">Planos Acessíveis</h2>
+            <p class="section-subtitle">Escolha a opção que melhor atende suas necessidades</p>
+            
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3 class="pricing-title">Template Único</h3>
+                    <div class="pricing-price">R$ 49,90</div>
+                    <span class="pricing-period">uma única compra</span>
+                    
+                    <div class="pricing-features">
+                        <div class="pricing-feature">1 template premium</div>
+                        <div class="pricing-feature">Documentação detalhada</div>
+                        <div class="pricing-feature">Suporte por e-mail</div>
+                        <div class="pricing-feature">Atualizações por 6 meses</div>
+                    </div>
+                    
+                    <button class="pricing-btn">Selecionar</button>
+                </div>
+                
+                <div class="pricing-card popular">
+                    <div class="popular-badge">RECOMENDADO</div>
+                    <h3 class="pricing-title">Pacote Completo</h3>
+                    <div class="pricing-price">R$ 129,90</div>
+                    <span class="pricing-period">uma única compra</span>
+                    
+                    <div class="pricing-features">
+                        <div class="pricing-feature">Todos os 6 templates</div>
+                        <div class="pricing-feature">Documentação premium</div>
+                        <div class="pricing-feature">Suporte prioritário</div>
+                        <div class="pricing-feature">Atualizações vitalícias</div>
+                        <div class="pricing-feature">Bônus: Currículo HTML</div>
+                    </div>
+                    
+                    <button class="pricing-btn">Selecionar</button>
+                </div>
+                
+                <div class="pricing-card">
+                    <h3 class="pricing-title">Personalizado</h3>
+                    <div class="pricing-price">R$ 199,90</div>
+                    <span class="pricing-period">+ personalização</span>
+                    
+                    <div class="pricing-features">
+                        <div class="pricing-feature">Pacote completo</div>
+                        <div class="pricing-feature">Personalização básica</div>
+                        <div class="pricing-feature">Hospedagem por 1 ano</div>
+                        <div class="pricing-feature">Domínio personalizado</div>
+                        <div class="pricing-feature">SEO básico</div>
+                    </div>
+                    
+                    <button class="pricing-btn">Selecionar</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <h2 class="section-title">Perguntas Frequentes</h2>
+            <p class="section-subtitle">Tire suas dúvidas sobre nossos templates e processo de compra</p>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">Como recebo os arquivos após a compra?</div>
+                    <div class="faq-answer">
+                        <p>Imediatamente após a confirmação do pagamento, você receberá um e-mail com o link para download de todos os arquivos (HTML, CSS, JavaScript, imagens e documentação). O download também estará disponível em sua conta caso você crie uma em nosso site.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Preciso saber programar para usar os templates?</div>
+                    <div class="faq-answer">
+                        <p>Não é necessário conhecimento avançado. Nossos templates são projetados para serem fáceis de personalizar - você só precisa editar textos e imagens nos locais indicados. Incluímos um vídeo tutorial passo a passo e documentação detalhada.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Posso usar o template para vários clientes?</div>
+                    <div class="faq-answer">
+                        <p>Sim, mas cada uso comercial (para clientes diferentes) requer uma licença separada. Oferecemos descontos para compras em grande volume - entre em contato para saber mais.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Os templates são responsivos?</div>
+                    <div class="faq-answer">
+                        <p>Sim, todos os nossos templates são 100% responsivos e foram testados em diversos dispositivos (smartphones, tablets e desktops com diferentes resoluções).</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Qual é a política de reembolso?</div>
+                    <div class="faq-answer">
+                        <p>Oferecemos reembolso total em até 7 dias após a compra, desde que você não tenha feito download dos arquivos. Após o download, não é possível reembolsar devido à natureza digital do produto.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PIX Payment Section -->
+    <section class="pix-section" id="payment">
+        <div class="container">
+            <div class="pix-container">
+                <h2 class="pix-title">Pagamento via PIX</h2>
+                <p>Rápido, seguro e sem taxas. O template é liberado imediatamente após a confirmação do pagamento.</p>
+                
+                <div class="pix-code" id="pixCode">
+                    10422308110
+                </div>
+                
+                <div class="pix-qrcode">
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=00020126580014br.gov.bcb.pix0136104223081105204000053039865802BR5925SEU%20NOME6009SAO%20PAULO62070503***6304E2CA" alt="QR Code PIX">
+                </div>
+                
+                <ol class="pix-instructions">
+                    <li>Copie a chave PIX acima ou escaneie o QR Code</li>
+                    <li>Abra seu aplicativo de banco e selecione pagar via PIX</li>
+                    <li>Cole a chave ou escaneie o QR Code</li>
+                    <li>Confirme o valor e finalize o pagamento</li>
+                    <li>Envie o comprovante para nosso WhatsApp (11) 98765-4321</li>
+                    <li>Receba o link de download automaticamente</li>
+                </ol>
+                
+                <button class="cta-button" onclick="copyPixKey()">
+                    <i class="fas fa-copy"></i> Copiar Chave PIX
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2 class="cta-title">Pronto para impressionar com seu novo portfólio?</h2>
+            <p class="cta-subtitle">Comece hoje mesmo e dê o próximo passo na sua carreira profissional</p>
+            <a href="#pricing" class="cta-btn">Escolher Meu Template</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="#" class="footer-logo">Portfolio<span>Pro</span></a>
+                    <p class="footer-about">Criamos templates de portfólio premium para profissionais criativos se destacarem no mercado digital.</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3 class="footer-title">Templates</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">Para Desenvolvedores</a></li>
+                        <li><a href="#" class="footer-link">Para Designers</a></li>
+                        <li><a href="#" class="footer-link">Para Fotógrafos</a></li>
+                        <li><a href="#" class="footer-link">Minimalistas</a></li>
+                        <li><a href="#" class="footer-link">Todos os Templates</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3 class="footer-title">Recursos</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">Documentação</a></li>
+                        <li><a href="#" class="footer-link">Tutoriais em Vídeo</a></li>
+                        <li><a href="#" class="footer-link">Blog</a></li>
+                        <li><a href="#" class="footer-link">Changelog</a></li>
+                        <li><a href="#" class="footer-link">Status</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3 class="footer-title">Contato</h3>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>contato@portfoliopro.com</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>(11) 98765-4321</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>São Paulo, Brasil</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 PortfolioPro. Todos os direitos reservados. <a href="#">Termos de Serviço</a> | <a href="#">Política de Privacidade</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
     <script>
-        // Sistema de Tradução
-        const translations = {
-            'pt': {
-                'nav.templates': 'Templates',
-                'nav.features': 'Vantagens',
-                'nav.payment': 'Pagamento',
-                'hero.title': 'Portfólios Profissionais Prontos',
-                'hero.subtitle': 'Templates HTML/CSS premium para desenvolvedores, designers e freelancers. Personalize em minutos e impressione seus clientes!',
-                'hero.button': 'Ver Templates',
-                // Adicione todas outras traduções...
-            },
-            'en': {
-                'nav.templates': 'Templates',
-                'nav.features': 'Features',
-                'nav.payment': 'Payment',
-                'hero.title': 'Professional Portfolio Templates',
-                'hero.subtitle': 'Premium HTML/CSS templates for developers, designers and freelancers. Customize in minutes and impress your clients!',
-                'hero.button': 'View Templates',
-                // ...
-            },
-            'es': {
-                'nav.templates': 'Plantillas',
-                'nav.features': 'Ventajas',
-                'nav.payment': 'Pago',
-                'hero.title': 'Plantillas de Portafolio Profesional',
-                'hero.subtitle': 'Plantillas HTML/CSS premium para desarrolladores, diseñadores y freelancers. ¡Personaliza en minutos e impresiona a tus clientes!',
-                'hero.button': 'Ver Plantillas',
-                // ...
-            },
-            'fr': {
-                'nav.templates': 'Modèles',
-                'nav.features': 'Avantages',
-                'nav.payment': 'Paiement',
-                'hero.title': 'Modèles de Portfolio Professionnel',
-                'hero.subtitle': 'Modèles HTML/CSS premium pour développeurs, designers et freelances. Personnalisez en quelques minutes et impressionnez vos clients !',
-                'hero.button': 'Voir Modèles',
-                // ...
-            },
-            'de': {
-                'nav.templates': 'Vorlagen',
-                'nav.features': 'Vorteile',
-                'nav.payment': 'Zahlung',
-                'hero.title': 'Professionelle Portfolio-Vorlagen',
-                'hero.subtitle': 'Premium HTML/CSS-Vorlagen für Entwickler, Designer und Freiberufler. In Minuten anpassbar und beeindrucken Sie Ihre Kunden!',
-                'hero.button': 'Vorlagen ansehen',
-                // ...
-            },
-            'it': {
-                'nav.templates': 'Modelli',
-                'nav.features': 'Vantaggi',
-                'nav.payment': 'Pagamento',
-                'hero.title': 'Modelli di Portfolio Professionale',
-                'hero.subtitle': 'Modelli HTML/CSS premium per sviluppatori, designer e freelancer. Personalizza in pochi minuti e impressiona i tuoi clienti!',
-                'hero.button': 'Vedi Modelli',
-                // ...
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
             }
-        };
+        });
 
-        // Funções de controle de idioma
-        function toggleDropdown() {
-            document.getElementById('languageDropdown').classList.toggle('show-dropdown');
+        // FAQ accordion
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                item.classList.toggle('active');
+            });
+        });
+
+        // Template filter
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const templateCards = document.querySelectorAll('.template-card');
+        
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Update active button
+                filterBtns.forEach(btn => btn.classList.remove('active'));
+                btn.classList.add('active');
+                
+                // Filter templates
+                const filter = btn.getAttribute('data-filter');
+                templateCards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Copy PIX key
+        function copyPixKey() {
+            const pixKey = "10422308110";
+            navigator.clipboard.writeText(pixKey).then(() => {
+                alert("Chave PIX copiada com sucesso! Agora é só colar no seu aplicativo de banco.");
+            }).catch(err => {
+                console.error('Erro ao copiar: ', err);
+            });
         }
 
-        function changeLanguage(lang) {
-            // Atualiza o idioma visível
-            document.getElementById('current-language').textContent = lang.toUpperCase();
-            
-            // Fecha o dropdown
-            document.getElementById('languageDropdown').classList.remove('show-dropdown');
-            
-            // Aplica as traduções
-            const elements = document.querySelectorAll('[data-translate]');
-            elements.forEach(el => {
-                const key = el.getAttribute('data-translate');
-                if (translations[lang] && translations[lang][key]) {
-                    el.textContent = translations[lang][key];
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
                 }
             });
-            
-            // Salva preferência (opcional)
-            localStorage.setItem('preferredLanguage', lang);
-        }
-
-        // Carrega idioma salvo ou padrão
-        document.addEventListener('DOMContentLoaded', () => {
-            const savedLang = localStorage.getItem('preferredLanguage') || 'pt';
-            changeLanguage(savedLang);
         });
 
-        // Fecha dropdown ao clicar fora
-        window.addEventListener('click', (e) => {
-            if (!e.target.matches('.language-button')) {
-                const dropdown = document.getElementById('languageDropdown');
-                if (dropdown.classList.contains('show-dropdown')) {
-                    dropdown.classList.remove('show-dropdown');
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    navLinks.style.display = 'none';
                 }
+            });
+        });
+
+        // Check screen size on resize
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                navLinks.style.display = 'flex';
+            } else {
+                navLinks.style.display = 'none';
             }
         });
-
-        /* [Seus outros scripts permanecem aqui] */
     </script>
 </body>
 </html>
