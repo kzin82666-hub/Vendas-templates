@@ -3,20 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PortfolioPro - Templates Profissionais para Seu Sucesso</title>
-    <meta name="description" content="Templates de portfólio HTML/CSS premium para desenvolvedores, designers e freelancers. Prontos para usar, 100% responsivos e fáceis de personalizar.">
+    <title>Kzin Templates - Portfólios Profissionais em HTML/CSS</title>
+    <meta name="description" content="Templates exclusivos por Kzin - Portfólios modernos para desenvolvedores, designers e freelancers. Compre via PIX e receba instantaneamente!">
     
-    <!-- Favicon e Apple Touch Icon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💻</text></svg>">
     
     <!-- Fontes -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- CSS -->
     <style>
         :root {
             --primary: #4361ee;
@@ -61,6 +57,7 @@
         img {
             max-width: 100%;
             height: auto;
+            display: block;
         }
 
         .container {
@@ -714,6 +711,109 @@
             max-height: 500px;
         }
 
+        /* PIX Payment Section */
+        .pix-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f6f9fc 0%, #eef2f5 100%);
+        }
+
+        .pix-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+
+        .pix-title {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        .pix-code {
+            background: #f1f5f9;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: monospace;
+            font-size: 1.2rem;
+            margin: 20px 0;
+            word-break: break-all;
+            border: 1px dashed var(--primary);
+        }
+
+        .pix-qrcode {
+            max-width: 200px;
+            margin: 20px auto;
+            padding: 10px;
+            background: white;
+            border-radius: 5px;
+            border: 1px solid var(--light-gray);
+        }
+
+        .pix-instructions {
+            text-align: left;
+            margin: 30px 0;
+        }
+
+        .pix-instructions h4 {
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .pix-instructions ol {
+            padding-left: 20px;
+        }
+
+        .pix-instructions li {
+            margin-bottom: 10px;
+        }
+
+        .contact-method {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 15px 0;
+            padding: 12px;
+            background: rgba(67, 97, 238, 0.1);
+            border-radius: 5px;
+        }
+
+        .contact-method i {
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+
+        .social-proof {
+            margin-top: 30px;
+            padding: 20px;
+            background: rgba(16, 185, 129, 0.1);
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .testimonial-micro {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .testimonial-micro img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--primary);
+        }
+
+        .testimonial-micro p {
+            font-style: italic;
+            color: var(--gray);
+        }
+
         /* CTA Section */
         .cta {
             padding: 100px 0;
@@ -767,11 +867,20 @@
             margin-bottom: 60px;
         }
 
+        .footer-col {
+            display: flex;
+            flex-direction: column;
+        }
+
         .footer-logo {
             font-size: 1.5rem;
             font-weight: 700;
             margin-bottom: 20px;
-            display: inline-block;
+            color: white;
+        }
+
+        .footer-logo span {
+            color: var(--primary);
         }
 
         .footer-about {
@@ -794,6 +903,7 @@
             align-items: center;
             justify-content: center;
             transition: var(--transition);
+            color: white;
         }
 
         .social-link:hover {
@@ -833,12 +943,42 @@
             font-size: 0.95rem;
         }
 
+        .footer-contact-item i {
+            width: 20px;
+            text-align: center;
+        }
+
         .footer-bottom {
             text-align: center;
             padding-top: 30px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             font-size: 0.9rem;
             opacity: 0.7;
+        }
+
+        /* WhatsApp Float */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background-color: #25D366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3);
+            z-index: 1000;
+            animation: pulse 2s infinite;
+            transition: var(--transition);
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 25px rgba(37, 211, 102, 0.4);
         }
 
         /* Responsivo */
@@ -864,6 +1004,23 @@
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+                z-index: 999;
+            }
+            
+            .nav-links.show {
+                display: flex;
+            }
+            
+            .nav-link {
+                padding: 15px 0;
             }
             
             .mobile-menu-btn {
@@ -888,6 +1045,14 @@
             
             .pricing-card.popular {
                 transform: none;
+            }
+            
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+                bottom: 20px;
+                right: 20px;
             }
         }
 
@@ -917,6 +1082,18 @@
             .footer-social {
                 justify-content: center;
             }
+            
+            .footer-links {
+                padding-left: 0;
+            }
+            
+            .footer-contact-item {
+                justify-content: center;
+            }
+            
+            .pix-container {
+                padding: 30px 20px;
+            }
         }
     </style>
 </head>
@@ -926,12 +1103,11 @@
         <div class="container">
             <div class="header-container">
                 <a href="#" class="logo">
-                    <img src="logo.svg" alt="PortfolioPro">
-                    Portfolio<span>Pro</span>
+                    Kzin<span>Templates</span>
                 </a>
                 
                 <nav>
-                    <div class="nav-links">
+                    <div class="nav-links" id="navLinks">
                         <a href="#features" class="nav-link">Recursos</a>
                         <a href="#templates" class="nav-link">Templates</a>
                         <a href="#pricing" class="nav-link">Preços</a>
@@ -942,7 +1118,7 @@
                     
                     <a href="#pricing" class="nav-cta">Comprar Agora</a>
                     
-                    <button class="mobile-menu-btn">
+                    <button class="mobile-menu-btn" id="mobileMenuBtn">
                         <i class="fas fa-bars"></i>
                     </button>
                 </nav>
@@ -1352,28 +1528,36 @@
         <div class="container">
             <div class="pix-container">
                 <h2 class="pix-title">Pagamento via PIX</h2>
-                <p>Rápido, seguro e sem taxas. O template é liberado imediatamente após a confirmação do pagamento.</p>
+                <p>Todos os templates são liberados imediatamente após a confirmação do pagamento.</p>
                 
                 <div class="pix-code" id="pixCode">
-                    10422308110
+                    10422308110 (Chave CPF)
                 </div>
                 
                 <div class="pix-qrcode">
-                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=00020126580014br.gov.bcb.pix0136104223081105204000053039865802BR5925SEU%20NOME6009SAO%20PAULO62070503***6304E2CA" alt="QR Code PIX">
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=00020126580014br.gov.bcb.pix0136104223081105204000053039865802BR5923KZIN%20TEMPLATES6009SAO%20PAULO62070503***6304E2CA" alt="QR Code PIX">
                 </div>
                 
-                <ol class="pix-instructions">
-                    <li>Copie a chave PIX acima ou escaneie o QR Code</li>
-                    <li>Abra seu aplicativo de banco e selecione pagar via PIX</li>
-                    <li>Cole a chave ou escaneie o QR Code</li>
-                    <li>Confirme o valor e finalize o pagamento</li>
-                    <li>Envie o comprovante para nosso WhatsApp (11) 98765-4321</li>
-                    <li>Receba o link de download automaticamente</li>
-                </ol>
+                <div class="pix-instructions">
+                    <h4>Passo a Passo:</h4>
+                    <ol>
+                        <li>Efetue o pagamento via PIX usando a chave ou QR Code acima</li>
+                        <li>Envie o comprovante para:
+                            <div class="contact-method">
+                                <i class="fab fa-whatsapp"></i> 
+                                <a href="https://wa.me/5562992628445" target="_blank">(62) 99262-8445</a>
+                            </div>
+                        </li>
+                        <li>Receba o link de download em até 10 minutos</li>
+                    </ol>
+                </div>
                 
-                <button class="cta-button" onclick="copyPixKey()">
-                    <i class="fas fa-copy"></i> Copiar Chave PIX
-                </button>
+                <div class="social-proof">
+                    <div class="testimonial-micro">
+                        <img src="https://randomuser.me/api/portraits/women/63.jpg" alt="Cliente satisfeito">
+                        <p>"Recebi meu template em 3 minutos após o pagamento!"</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -1392,13 +1576,21 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
-                    <a href="#" class="footer-logo">Portfolio<span>Pro</span></a>
-                    <p class="footer-about">Criamos templates de portfólio premium para profissionais criativos se destacarem no mercado digital.</p>
+                    <a href="#" class="footer-logo">Kzin<span>Templates</span></a>
+                    <p class="footer-about">Templates premium criados por um desenvolvedor front-end apaixonado por design.</p>
                     <div class="footer-social">
-                        <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://www.instagram.com/kzinzxx7/" target="_blank" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://github.com/kzin82666-hub" target="_blank" class="social-link">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://wa.me/5562992628445" target="_blank" class="social-link">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="mailto:kzin82666@gmail.com" class="social-link">
+                            <i class="fas fa-envelope"></i>
+                        </a>
                     </div>
                 </div>
                 
@@ -1428,24 +1620,35 @@
                     <h3 class="footer-title">Contato</h3>
                     <div class="footer-contact-item">
                         <i class="fas fa-envelope"></i>
-                        <span>contato@portfoliopro.com</span>
+                        <span>kzin82666@gmail.com</span>
                     </div>
                     <div class="footer-contact-item">
                         <i class="fab fa-whatsapp"></i>
-                        <span>(11) 98765-4321</span>
+                        <a href="https://wa.me/5562992628445" target="_blank">(62) 99262-8445</a>
                     </div>
                     <div class="footer-contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>São Paulo, Brasil</span>
+                        <i class="fab fa-instagram"></i>
+                        <a href="https://www.instagram.com/kzinzxx7/" target="_blank">@kzinzxx7</a>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fab fa-github"></i>
+                        <a href="https://github.com/kzin82666-hub" target="_blank">kzin82666-hub</a>
                     </div>
                 </div>
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2023 PortfolioPro. Todos os direitos reservados. <a href="#">Termos de Serviço</a> | <a href="#">Política de Privacidade</a></p>
+                <p>&copy; 2023 Kzin Templates. Todos os direitos reservados. <a href="#">Termos de Serviço</a> | <a href="#">Política de Privacidade</a></p>
             </div>
         </div>
     </footer>
+
+    <!-- WhatsApp Float -->
+    <div class="whatsapp-float">
+        <a href="https://wa.me/5562992628445" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
 
     <!-- JavaScript -->
     <script>
@@ -1457,6 +1660,26 @@
             } else {
                 header.classList.remove('scrolled');
             }
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('show');
+            mobileMenuBtn.innerHTML = navLinks.classList.contains('show') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    navLinks.classList.remove('show');
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                }
+            });
         });
 
         // FAQ accordion
@@ -1497,6 +1720,7 @@
                 alert("Chave PIX copiada com sucesso! Agora é só colar no seu aplicativo de banco.");
             }).catch(err => {
                 console.error('Erro ao copiar: ', err);
+                alert("Não foi possível copiar a chave. Por favor, anote manualmente: " + pixKey);
             });
         }
 
@@ -1514,22 +1738,14 @@
             });
         });
 
-        // Mobile menu toggle
-        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-        const navLinks = document.querySelector('.nav-links');
-        
-        mobileMenuBtn.addEventListener('click', () => {
-            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-        });
-
-        // Close mobile menu when clicking on a link
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', () => {
-                if (window.innerWidth <= 768) {
-                    navLinks.style.display = 'none';
-                }
-            });
-        });
+        // WhatsApp button animation
+        const whatsappBtn = document.querySelector('.whatsapp-float');
+        setInterval(() => {
+            whatsappBtn.style.transform = 'translateY(-5px)';
+            setTimeout(() => {
+                whatsappBtn.style.transform = 'translateY(0)';
+            }, 500);
+        }, 3000);
 
         // Check screen size on resize
         window.addEventListener('resize', () => {
@@ -1538,6 +1754,13 @@
             } else {
                 navLinks.style.display = 'none';
             }
+        });
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set current year in footer
+            document.querySelector('.footer-bottom p').innerHTML = 
+                `&copy; ${new Date().getFullYear()} Kzin Templates. Todos os direitos reservados. <a href="#">Termos de Serviço</a> | <a href="#">Política de Privacidade</a>`;
         });
     </script>
 </body>
