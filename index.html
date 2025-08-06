@@ -3,533 +3,267 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kzin Templates - Portfólios Profissionais em HTML/CSS</title>
-    <meta name="description" content="Templates exclusivos por Kzin - Portfólios modernos para desenvolvedores, designers e freelancers. Compre via PIX e receba instantaneamente!">
-    
-    <!-- Favicon -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💻</text></svg>">
-    
-    <!-- Fontes -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <title>DevTemplates - Portfólios Profissionais Prontos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
     <style>
         :root {
-            --primary: #4361ee;
-            --primary-dark: #3a56d4;
-            --secondary: #3f37c9;
-            --dark: #1a1a2e;
-            --light: #f8f9fa;
-            --gray: #6c757d;
-            --light-gray: #e9ecef;
-            --success: #4cc9f0;
-            --warning: #f8961e;
-            --danger: #ef233c;
-            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
-            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --primaria: #2563eb;
+            --destaque: #1d4ed8;
+            --fundo: #f8fafc;
+            --texto: #1e293b;
+            --card: #ffffff;
+            --borda: #e2e8f0;
+            --sucesso: #10b981;
         }
-
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
         }
 
         body {
-            font-family: 'Poppins', sans-serif;
-            color: var(--dark);
+            background: var(--fundo);
+            color: var(--texto);
             line-height: 1.6;
-            background-color: var(--light);
-            overflow-x: hidden;
         }
 
-        h1, h2, h3, h4 {
-            font-family: 'Montserrat', sans-serif;
-            line-height: 1.2;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
+        /* Header */
+        header {
+            background: var(--card);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 1rem 0;
         }
 
         .container {
-            width: 100%;
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
 
-        /* Header */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background-color: rgba(255, 255, 255, 0.98);
-            box-shadow: var(--shadow);
-            z-index: 1000;
-            backdrop-filter: blur(10px);
-            padding: 15px 0;
-            transition: var(--transition);
-        }
-
-        header.scrolled {
-            padding: 10px 0;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .header-container {
+        .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             font-weight: 700;
-            color: var(--primary);
+            color: var(--primaria);
+            text-decoration: none;
         }
 
-        .logo img {
-            height: 40px;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 30px;
-        }
-
-        .nav-link {
-            font-weight: 500;
-            position: relative;
-            padding: 5px 0;
-            transition: var(--transition);
-        }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: var(--primary);
-            transition: var(--transition);
-        }
-
-        .nav-link:hover::after {
-            width: 100%;
-        }
-
-        .nav-cta {
-            background-color: var(--primary);
-            color: white;
-            padding: 8px 20px;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: var(--transition);
-            margin-left: 20px;
-        }
-
-        .nav-cta:hover {
-            background-color: var(--primary-dark);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow);
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            color: var(--dark);
-            cursor: pointer;
+        .logo span {
+            color: var(--texto);
         }
 
         /* Hero Section */
         .hero {
-            padding: 180px 0 100px;
+            padding: 5rem 0;
+            text-align: center;
             background: linear-gradient(135deg, #f6f9fc 0%, #eef2f5 100%);
-            position: relative;
-            overflow: hidden;
         }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 100%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(67, 97, 238, 0.08) 0%, rgba(67, 97, 238, 0) 70%);
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            color: var(--primaria);
         }
 
-        .hero-container {
-            display: flex;
-            align-items: center;
-            gap: 50px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero-content {
-            flex: 1;
-        }
-
-        .hero-title {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            color: var(--dark);
-        }
-
-        .hero-title span {
-            color: var(--primary);
-        }
-
-        .hero-subtitle {
+        .hero p {
             font-size: 1.2rem;
-            color: var(--gray);
-            margin-bottom: 30px;
-            max-width: 600px;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            color: var(--texto);
         }
 
-        .hero-cta {
+        .cta-button {
             display: inline-block;
-            background-color: var(--primary);
+            background: var(--primaria);
             color: white;
-            padding: 15px 35px;
+            padding: 12px 30px;
             border-radius: 50px;
+            text-decoration: none;
             font-weight: 600;
-            font-size: 1.1rem;
-            transition: var(--transition);
-            box-shadow: 0 10px 20px rgba(67, 97, 238, 0.3);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
         }
 
-        .hero-cta:hover {
-            background-color: var(--primary-dark);
+        .cta-button:hover {
+            background: var(--destaque);
             transform: translateY(-3px);
-            box-shadow: 0 15px 30px rgba(67, 97, 238, 0.4);
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
         }
 
-        .hero-image {
-            flex: 1;
-            position: relative;
-        }
-
-        .hero-image img {
-            border-radius: 10px;
-            box-shadow: var(--shadow-lg);
-            transform: perspective(1000px) rotateY(-10deg);
-            transition: var(--transition);
-        }
-
-        .hero-image:hover img {
-            transform: perspective(1000px) rotateY(-5deg);
-        }
-
-        .hero-badge {
-            position: absolute;
-            top: -20px;
-            right: -20px;
-            background-color: var(--warning);
-            color: white;
-            padding: 10px 20px;
-            border-radius: 50px;
-            font-weight: 600;
-            box-shadow: var(--shadow);
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-
-        /* Features Section */
-        .features {
-            padding: 100px 0;
-            background-color: white;
+        /* Products Section */
+        .products {
+            padding: 5rem 0;
         }
 
         .section-title {
             text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-            color: var(--dark);
+            font-size: 2.2rem;
+            margin-bottom: 3rem;
+            color: var(--primaria);
         }
 
-        .section-subtitle {
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: var(--card);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border: 1px solid var(--borda);
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-image {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: var(--sucesso);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .product-content {
+            padding: 1.5rem;
+        }
+
+        .product-title {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--texto);
+        }
+
+        .product-description {
+            color: #64748b;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .product-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primaria);
+            margin-bottom: 1rem;
+        }
+
+        .product-price span {
+            font-size: 1rem;
+            color: #64748b;
+            text-decoration: line-through;
+            margin-left: 5px;
+        }
+
+        .buy-button {
+            display: block;
+            width: 100%;
+            background: var(--primaria);
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
             text-align: center;
-            color: var(--gray);
-            max-width: 700px;
-            margin: 0 auto 60px;
-            font-size: 1.1rem;
+            text-decoration: none;
+        }
+
+        .buy-button:hover {
+            background: var(--destaque);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, #f6f9fc 0%, #eef2f5 100%);
         }
 
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
         }
 
         .feature-card {
-            background-color: white;
+            background: var(--card);
+            padding: 2rem;
             border-radius: 10px;
-            padding: 30px;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            border: 1px solid var(--light-gray);
             text-align: center;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-lg);
-            border-color: var(--primary);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
         }
 
         .feature-icon {
             font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 20px;
-            background-color: rgba(67, 97, 238, 0.1);
-            width: 80px;
-            height: 80px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            margin: 0 auto 20px;
+            color: var(--primaria);
+            margin-bottom: 1rem;
         }
 
         .feature-title {
-            font-size: 1.3rem;
-            margin-bottom: 15px;
-            color: var(--dark);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
         }
 
         .feature-description {
-            color: var(--gray);
+            color: #64748b;
             font-size: 0.95rem;
         }
 
-        /* Templates Section */
-        .templates {
-            padding: 100px 0;
-            background-color: var(--light);
-        }
-
-        .templates-filter {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 40px;
-            flex-wrap: wrap;
-        }
-
-        .filter-btn {
-            background: none;
-            border: 1px solid var(--light-gray);
-            padding: 8px 20px;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: var(--transition);
-            font-weight: 500;
-        }
-
-        .filter-btn.active, .filter-btn:hover {
-            background-color: var(--primary);
-            color: white;
-            border-color: var(--primary);
-        }
-
-        .templates-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 30px;
-        }
-
-        .template-card {
-            background-color: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            position: relative;
-        }
-
-        .template-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .template-badge {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background-color: var(--warning);
-            color: white;
-            padding: 5px 15px;
-            border-radius: 50px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            z-index: 2;
-        }
-
-        .template-image {
-            height: 250px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .template-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition);
-        }
-
-        .template-card:hover .template-image img {
-            transform: scale(1.05);
-        }
-
-        .template-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 20px;
-            opacity: 0;
-            transition: var(--transition);
-        }
-
-        .template-card:hover .template-overlay {
-            opacity: 1;
-        }
-
-        .template-link {
-            color: white;
-            font-size: 1.5rem;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: var(--transition);
-            backdrop-filter: blur(5px);
-        }
-
-        .template-link:hover {
-            background-color: var(--primary);
-            transform: scale(1.1);
-        }
-
-        .template-content {
-            padding: 20px;
-        }
-
-        .template-title {
-            font-size: 1.3rem;
-            margin-bottom: 10px;
-            color: var(--dark);
-        }
-
-        .template-description {
-            color: var(--gray);
-            margin-bottom: 15px;
-            font-size: 0.9rem;
-        }
-
-        .template-price {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-top: 15px;
-        }
-
-        .price-current {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary);
-        }
-
-        .price-original {
-            font-size: 1rem;
-            color: var(--gray);
-            text-decoration: line-through;
-        }
-
-        .template-btn {
-            background-color: var(--primary);
-            color: white;
-            border: none;
-            padding: 8px 20px;
-            border-radius: 5px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .template-btn:hover {
-            background-color: var(--primary-dark);
-        }
-
-        /* Testimonials Section */
+        /* Testimonials */
         .testimonials {
-            padding: 100px 0;
-            background-color: white;
-        }
-
-        .testimonials-container {
-            max-width: 1000px;
-            margin: 0 auto;
+            padding: 5rem 0;
         }
 
         .testimonial-card {
-            background-color: var(--light);
+            background: var(--card);
+            padding: 2rem;
             border-radius: 10px;
-            padding: 30px;
-            box-shadow: var(--shadow);
-            margin-bottom: 30px;
-            position: relative;
-        }
-
-        .testimonial-card::before {
-            content: '"';
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            font-size: 5rem;
-            color: rgba(67, 97, 238, 0.1);
-            font-family: serif;
-            line-height: 1;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 2rem;
         }
 
         .testimonial-text {
             font-style: italic;
-            margin-bottom: 20px;
-            color: var(--dark);
-            position: relative;
-            z-index: 1;
+            margin-bottom: 1rem;
+            color: var(--texto);
         }
 
         .testimonial-author {
@@ -538,589 +272,265 @@
         }
 
         .author-avatar {
-            width: 60px;
-            height: 60px;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
             object-fit: cover;
-            margin-right: 15px;
-            border: 3px solid var(--primary);
+            margin-right: 1rem;
         }
 
         .author-info h4 {
-            font-size: 1.1rem;
-            margin-bottom: 5px;
-            color: var(--dark);
+            font-size: 1rem;
+            margin-bottom: 0.2rem;
         }
 
         .author-info p {
-            color: var(--gray);
+            color: #64748b;
             font-size: 0.9rem;
-        }
-
-        /* Pricing Section */
-        .pricing {
-            padding: 100px 0;
-            background-color: var(--light);
-        }
-
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .pricing-card {
-            background-color: white;
-            border-radius: 10px;
-            padding: 40px 30px;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            text-align: center;
-            position: relative;
-            border: 1px solid var(--light-gray);
-        }
-
-        .pricing-card.popular {
-            border: 2px solid var(--primary);
-            transform: scale(1.05);
-        }
-
-        .popular-badge {
-            position: absolute;
-            top: -15px;
-            right: 20px;
-            background-color: var(--primary);
-            color: white;
-            padding: 5px 15px;
-            border-radius: 50px;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-
-        .pricing-title {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: var(--dark);
-        }
-
-        .pricing-price {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 20px;
-        }
-
-        .pricing-period {
-            font-size: 1rem;
-            color: var(--gray);
-        }
-
-        .pricing-features {
-            margin-bottom: 30px;
-        }
-
-        .pricing-feature {
-            margin-bottom: 10px;
-            color: var(--gray);
-            position: relative;
-            padding-left: 25px;
-        }
-
-        .pricing-feature::before {
-            content: '\f00c';
-            font-family: 'Font Awesome 6 Free';
-            font-weight: 900;
-            position: absolute;
-            left: 0;
-            top: 2px;
-            color: var(--success);
-        }
-
-        .pricing-btn {
-            display: block;
-            width: 100%;
-            background-color: var(--primary);
-            color: white;
-            border: none;
-            padding: 12px;
-            border-radius: 5px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .pricing-btn:hover {
-            background-color: var(--primary-dark);
-        }
-
-        /* FAQ Section */
-        .faq {
-            padding: 100px 0;
-            background-color: white;
-        }
-
-        .faq-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .faq-item {
-            margin-bottom: 15px;
-            border: 1px solid var(--light-gray);
-            border-radius: 5px;
-            overflow: hidden;
-        }
-
-        .faq-question {
-            background-color: var(--light);
-            padding: 15px 20px;
-            font-weight: 600;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: var(--transition);
-        }
-
-        .faq-question:hover {
-            background-color: rgba(67, 97, 238, 0.1);
-        }
-
-        .faq-question::after {
-            content: '\f078';
-            font-family: 'Font Awesome 6 Free';
-            font-weight: 900;
-            transition: var(--transition);
-        }
-
-        .faq-item.active .faq-question::after {
-            transform: rotate(180deg);
-        }
-
-        .faq-answer {
-            padding: 0 20px;
-            max-height: 0;
-            overflow: hidden;
-            transition: var(--transition);
-        }
-
-        .faq-item.active .faq-answer {
-            padding: 20px;
-            max-height: 500px;
         }
 
         /* PIX Payment Section */
         .pix-section {
-            padding: 100px 0;
+            padding: 5rem 0;
             background: linear-gradient(135deg, #f6f9fc 0%, #eef2f5 100%);
+            text-align: center;
         }
 
         .pix-container {
             max-width: 600px;
             margin: 0 auto;
-            background: white;
-            padding: 40px;
+            background: var(--card);
+            padding: 2rem;
             border-radius: 10px;
-            box-shadow: var(--shadow);
-            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
         }
 
         .pix-title {
             font-size: 1.8rem;
-            margin-bottom: 20px;
-            color: var(--primary);
+            margin-bottom: 1rem;
+            color: var(--primaria);
         }
 
         .pix-code {
             background: #f1f5f9;
-            padding: 15px;
+            padding: 1rem;
             border-radius: 5px;
             font-family: monospace;
             font-size: 1.2rem;
-            margin: 20px 0;
+            margin: 1rem 0;
             word-break: break-all;
-            border: 1px dashed var(--primary);
-        }
-
-        .pix-qrcode {
-            max-width: 200px;
-            margin: 20px auto;
-            padding: 10px;
-            background: white;
-            border-radius: 5px;
-            border: 1px solid var(--light-gray);
         }
 
         .pix-instructions {
             text-align: left;
-            margin: 30px 0;
-        }
-
-        .pix-instructions h4 {
-            margin-bottom: 15px;
-            color: var(--dark);
-        }
-
-        .pix-instructions ol {
-            padding-left: 20px;
+            margin-bottom: 2rem;
+            color: var(--texto);
         }
 
         .pix-instructions li {
-            margin-bottom: 10px;
+            margin-bottom: 0.5rem;
         }
 
-        .contact-method {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin: 15px 0;
-            padding: 12px;
-            background: rgba(67, 97, 238, 0.1);
+        .pix-qrcode {
+            max-width: 200px;
+            margin: 1rem auto;
+            padding: 10px;
+            background: white;
             border-radius: 5px;
         }
 
-        .contact-method i {
-            color: var(--primary);
-            font-size: 1.2rem;
+        /* Preview Section */
+        .preview-section {
+            padding: 5rem 0;
+            background: var(--fundo);
         }
 
-        .social-proof {
-            margin-top: 30px;
-            padding: 20px;
-            background: rgba(16, 185, 129, 0.1);
+        .preview-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .preview-card {
+            background: var(--card);
             border-radius: 10px;
-            text-align: center;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--borda);
         }
 
-        .testimonial-micro {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .testimonial-micro img {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid var(--primary);
-        }
-
-        .testimonial-micro p {
-            font-style: italic;
-            color: var(--gray);
-        }
-
-        /* CTA Section */
-        .cta {
-            padding: 100px 0;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+        .preview-header {
+            padding: 1rem;
+            background: var(--primaria);
             color: white;
             text-align: center;
-        }
-
-        .cta-title {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
-
-        .cta-subtitle {
-            font-size: 1.1rem;
-            margin-bottom: 40px;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-            opacity: 0.9;
-        }
-
-        .cta-btn {
-            display: inline-block;
-            background-color: white;
-            color: var(--primary);
-            padding: 15px 40px;
-            border-radius: 50px;
             font-weight: 600;
-            font-size: 1.1rem;
-            transition: var(--transition);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
 
-        .cta-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        .preview-iframe {
+            width: 100%;
+            height: 400px;
+            border: none;
+        }
+
+        .preview-link {
+            display: block;
+            text-align: center;
+            padding: 1rem;
+            background: #f1f5f9;
+            color: var(--primaria);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .preview-link:hover {
+            background: #e2e8f0;
         }
 
         /* Footer */
         footer {
-            background-color: var(--dark);
+            background: var(--texto);
             color: white;
-            padding: 80px 0 30px;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
-            margin-bottom: 60px;
-        }
-
-        .footer-col {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .footer-logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            color: white;
-        }
-
-        .footer-logo span {
-            color: var(--primary);
-        }
-
-        .footer-about {
-            margin-bottom: 20px;
-            opacity: 0.8;
-            font-size: 0.95rem;
-        }
-
-        .footer-social {
-            display: flex;
-            gap: 15px;
-        }
-
-        .social-link {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: var(--transition);
-            color: white;
-        }
-
-        .social-link:hover {
-            background-color: var(--primary);
-            transform: translateY(-3px);
-        }
-
-        .footer-title {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-            font-weight: 600;
+            padding: 3rem 0;
+            text-align: center;
         }
 
         .footer-links {
-            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
         }
 
         .footer-link {
-            margin-bottom: 10px;
-            opacity: 0.8;
-            transition: var(--transition);
-            font-size: 0.95rem;
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
         }
 
         .footer-link:hover {
-            opacity: 1;
-            color: var(--primary);
-            padding-left: 5px;
+            color: var(--primaria);
         }
 
-        .footer-contact-item {
+        .social-links {
             display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 15px;
-            opacity: 0.8;
-            font-size: 0.95rem;
-        }
-
-        .footer-contact-item i {
-            width: 20px;
-            text-align: center;
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 0.9rem;
-            opacity: 0.7;
-        }
-
-        /* WhatsApp Float */
-        .whatsapp-float {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 60px;
-            height: 60px;
-            background-color: #25D366;
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
             justify-content: center;
-            font-size: 1.8rem;
-            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3);
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-link {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-link:hover {
+            color: var(--primaria);
+        }
+
+        .copyright {
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
             z-index: 1000;
-            animation: pulse 2s infinite;
-            transition: var(--transition);
+            justify-content: center;
+            align-items: center;
         }
 
-        .whatsapp-float:hover {
-            transform: scale(1.1);
-            box-shadow: 0 6px 25px rgba(37, 211, 102, 0.4);
+        .modal-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            max-width: 500px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
         }
 
-        /* Responsivo */
-        @media (max-width: 992px) {
-            .hero-container {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .hero-content {
-                margin-bottom: 50px;
-            }
-            
-            .hero-title {
-                font-size: 2.5rem;
-            }
-            
-            .section-title {
-                font-size: 2rem;
-            }
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
         }
 
+        .modal-title {
+            font-size: 1.5rem;
+            color: var(--primaria);
+        }
+
+        .close-modal {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #64748b;
+        }
+
+        /* Responsive */
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-                position: fixed;
-                top: 80px;
-                left: 0;
-                width: 100%;
-                background: white;
-                flex-direction: column;
-                padding: 20px;
-                box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-                z-index: 999;
-            }
-            
-            .nav-links.show {
-                display: flex;
-            }
-            
-            .nav-link {
-                padding: 15px 0;
-            }
-            
-            .mobile-menu-btn {
-                display: block;
-            }
-            
-            .hero {
-                padding: 150px 0 80px;
-            }
-            
-            .hero-title {
-                font-size: 2rem;
-            }
-            
-            .hero-subtitle {
-                font-size: 1rem;
-            }
-            
-            .templates-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .pricing-card.popular {
-                transform: none;
-            }
-            
-            .whatsapp-float {
-                width: 50px;
-                height: 50px;
-                font-size: 1.5rem;
-                bottom: 20px;
-                right: 20px;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .hero-title {
-                font-size: 1.8rem;
-            }
-            
-            .hero-cta {
-                padding: 12px 25px;
-                font-size: 1rem;
+            .hero h1 {
+                font-size: 2.2rem;
             }
             
             .section-title {
                 font-size: 1.8rem;
             }
-            
-            .section-subtitle {
-                font-size: 1rem;
+
+            .preview-iframe {
+                height: 300px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 3rem 0;
             }
             
-            .footer-grid {
-                grid-template-columns: 1fr;
-                text-align: center;
+            .hero h1 {
+                font-size: 1.8rem;
             }
             
-            .footer-social {
-                justify-content: center;
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
             }
             
             .footer-links {
-                padding-left: 0;
+                flex-direction: column;
+                gap: 1rem;
             }
-            
-            .footer-contact-item {
-                justify-content: center;
-            }
-            
-            .pix-container {
-                padding: 30px 20px;
+
+            .preview-iframe {
+                height: 250px;
             }
         }
     </style>
 </head>
 <body>
     <!-- Header -->
-    <header id="header">
+    <header>
         <div class="container">
-            <div class="header-container">
-                <a href="#" class="logo">
-                    Kzin<span>Templates</span>
-                </a>
-                
+            <div class="header-content">
+                <a href="#" class="logo">Dev<span>Templates</span></a>
                 <nav>
-                    <div class="nav-links" id="navLinks">
-                        <a href="#features" class="nav-link">Recursos</a>
-                        <a href="#templates" class="nav-link">Templates</a>
-                        <a href="#pricing" class="nav-link">Preços</a>
-                        <a href="#testimonials" class="nav-link">Depoimentos</a>
-                        <a href="#faq" class="nav-link">FAQ</a>
-                        <a href="#contact" class="nav-link">Contato</a>
-                    </div>
-                    
-                    <a href="#pricing" class="nav-cta">Comprar Agora</a>
-                    
-                    <button class="mobile-menu-btn" id="mobileMenuBtn">
-                        <i class="fas fa-bars"></i>
-                    </button>
+                    <a href="#products">Templates</a>
+                    <a href="#previews">Previews</a>
+                    <a href="#features">Vantagens</a>
+                    <a href="#pix">Pagamento</a>
                 </nav>
             </div>
         </div>
@@ -1129,394 +539,155 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <div class="hero-container">
-                <div class="hero-content">
-                    <h1 class="hero-title">Seu <span>Portfólio</span> Profissional em Minutos</h1>
-                    <p class="hero-subtitle">Templates HTML/CSS premium para desenvolvedores, designers e freelancers. Personalize em minutos e impressione seus clientes!</p>
-                    <a href="#templates" class="hero-cta">Ver Templates</a>
+            <h1>Portfólios Profissionais Prontos</h1>
+            <p>Templates HTML/CSS premium para desenvolvedores, designers e freelancers. Personalize em minutos e impressione seus clientes!</p>
+            <a href="#products" class="cta-button">Ver Templates</a>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="products">
+        <div class="container">
+            <h2 class="section-title">Nossos Templates</h2>
+            <div class="products-grid">
+                <!-- Template 1 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Dark Portfolio">
+                        <span class="product-badge">Mais Vendido</span>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Dark Portfolio</h3>
+                        <p class="product-description">Design moderno com efeitos de partículas e modo escuro elegante.</p>
+                        <div class="product-price">R$ 29,90 <span>R$ 49,90</span></div>
+                        <button class="buy-button" onclick="openModal('Dark Portfolio')">Comprar Agora</button>
+                    </div>
+                </div>
+
+                <!-- Template 2 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Neon Portfolio">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Neon Portfolio</h3>
+                        <p class="product-description">Efeitos neon impressionantes e design futurista para se destacar.</p>
+                        <div class="product-price">R$ 34,90 <span>R$ 59,90</span></div>
+                        <button class="buy-button" onclick="openModal('Neon Portfolio')">Comprar Agora</button>
+                    </div>
+                </div>
+
+                <!-- Template 3 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Minimal Portfolio">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Minimal Portfolio</h3>
+                        <p class="product-description">Design limpo e profissional com foco no conteúdo e usabilidade.</p>
+                        <div class="product-price">R$ 24,90 <span>R$ 39,90</span></div>
+                        <button class="buy-button" onclick="openModal('Minimal Portfolio')">Comprar Agora</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Preview Section -->
+    <section id="previews" class="preview-section">
+        <div class="container">
+            <h2 class="section-title">Veja nossos templates em ação</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 2rem;">Confira abaixo demonstrações ao vivo dos nossos templates. Clique em "Ver Site Completo" para explorar cada um em uma nova aba.</p>
+            
+            <div class="preview-container">
+                <!-- Preview 1 - Dark Portfolio -->
+                <div class="preview-card">
+                    <div class="preview-header">Dark Portfolio</div>
+                    <iframe src="https://projectdark.netlify.app/" class="preview-iframe" loading="lazy"></iframe>
+                    <a href="https://projectdark.netlify.app/" target="_blank" class="preview-link">
+                        Ver Site Completo <i class="fas fa-external-link-alt"></i>
+                    </a>
                 </div>
                 
-                <div class="hero-image">
-                    <div class="hero-badge">MAIS VENDIDO 2023</div>
-                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Template Preview">
+                <!-- Preview 2 - Light Portfolio -->
+                <div class="preview-card">
+                    <div class="preview-header">Light Portfolio</div>
+                    <iframe src="https://projectlight.netlify.app/" class="preview-iframe" loading="lazy"></iframe>
+                    <a href="https://projectlight.netlify.app/" target="_blank" class="preview-link">
+                        Ver Site Completo <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+                
+                <!-- Preview 3 - Neon Portfolio -->
+                <div class="preview-card">
+                    <div class="preview-header">Neon Portfolio</div>
+                    <iframe src="https://projectneon.netlify.app/" class="preview-iframe" loading="lazy"></iframe>
+                    <a href="https://projectneon.netlify.app/" target="_blank" class="preview-link">
+                        Ver Site Completo <i class="fas fa-external-link-alt"></i>
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Features Section -->
-    <section class="features" id="features">
+    <section id="features" class="features">
         <div class="container">
             <h2 class="section-title">Por que nossos templates?</h2>
-            <p class="section-subtitle">Desenvolvidos para ajudar profissionais criativos a se destacarem no mercado</p>
-            
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-mobile-alt"></i>
                     </div>
                     <h3 class="feature-title">100% Responsivo</h3>
-                    <p class="feature-description">Funciona perfeitamente em todos os dispositivos, de smartphones a desktops com telas grandes.</p>
+                    <p class="feature-description">Funciona perfeitamente em celulares, tablets e desktops.</p>
                 </div>
-                
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-bolt"></i>
                     </div>
-                    <h3 class="feature-title">Performance Otimizada</h3>
-                    <p class="feature-description">Código limpo e otimizado para carregamento ultrarrápido e melhor SEO.</p>
+                    <h3 class="feature-title">Rápido e Leve</h3>
+                    <p class="feature-description">Código otimizado para carregamento ultrarrápido.</p>
                 </div>
-                
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-code"></i>
                     </div>
                     <h3 class="feature-title">Fácil Personalização</h3>
-                    <p class="feature-description">Código bem organizado e comentado, com documentação detalhada.</p>
+                    <p class="feature-description">Código bem comentado para fácil edição.</p>
                 </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-palette"></i>
-                    </div>
-                    <h3 class="feature-title">Design Moderno</h3>
-                    <p class="feature-description">Interface profissional com atenção aos detalhes de tipografia e espaçamento.</p>
-                </div>
-                
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-headset"></i>
                     </div>
-                    <h3 class="feature-title">Suporte Prioritário</h3>
-                    <p class="feature-description">Equipe especializada pronta para te ajudar com qualquer dúvida.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-sync-alt"></i>
-                    </div>
-                    <h3 class="feature-title">Atualizações Gratuitas</h3>
-                    <p class="feature-description">Receba todas as melhorias e novos recursos sem custo adicional.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Templates Section -->
-    <section class="templates" id="templates">
-        <div class="container">
-            <h2 class="section-title">Nossos Templates</h2>
-            <p class="section-subtitle">Escolha o design que melhor combina com seu estilo profissional</p>
-            
-            <div class="templates-filter">
-                <button class="filter-btn active" data-filter="all">Todos</button>
-                <button class="filter-btn" data-filter="dev">Desenvolvedor</button>
-                <button class="filter-btn" data-filter="design">Designer</button>
-                <button class="filter-btn" data-filter="photography">Fotógrafo</button>
-                <button class="filter-btn" data-filter="minimal">Minimalista</button>
-            </div>
-            
-            <div class="templates-grid">
-                <!-- Template 1 -->
-                <div class="template-card" data-category="dev">
-                    <div class="template-badge">Mais Popular</div>
-                    <div class="template-image">
-                        <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Dark Portfolio">
-                        <div class="template-overlay">
-                            <a href="#" class="template-link" title="Visualizar Demo">
-                                <i class="fas fa-eye"></i>
-                            </a>
-                            <a href="#" class="template-link" title="Ver Código">
-                                <i class="fas fa-code"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="template-content">
-                        <h3 class="template-title">Dark Developer</h3>
-                        <p class="template-description">Portfólio moderno com modo escuro, efeitos de partículas e seção de projetos organizada.</p>
-                        <div class="template-price">
-                            <div>
-                                <span class="price-current">R$ 49,90</span>
-                                <span class="price-original">R$ 89,90</span>
-                            </div>
-                            <button class="template-btn">Comprar</button>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Template 2 -->
-                <div class="template-card" data-category="design">
-                    <div class="template-image">
-                        <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Neon Portfolio">
-                        <div class="template-overlay">
-                            <a href="#" class="template-link" title="Visualizar Demo">
-                                <i class="fas fa-eye"></i>
-                            </a>
-                            <a href="#" class="template-link" title="Ver Código">
-                                <i class="fas fa-code"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="template-content">
-                        <h3 class="template-title">Neon Design</h3>
-                        <p class="template-description">Design ousado com efeitos neon e animações modernas para designers criativos.</p>
-                        <div class="template-price">
-                            <div>
-                                <span class="price-current">R$ 54,90</span>
-                                <span class="price-original">R$ 99,90</span>
-                            </div>
-                            <button class="template-btn">Comprar</button>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Template 3 -->
-                <div class="template-card" data-category="minimal">
-                    <div class="template-image">
-                        <img src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Minimal Portfolio">
-                        <div class="template-overlay">
-                            <a href="#" class="template-link" title="Visualizar Demo">
-                                <i class="fas fa-eye"></i>
-                            </a>
-                            <a href="#" class="template-link" title="Ver Código">
-                                <i class="fas fa-code"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="template-content">
-                        <h3 class="template-title">Minimal Pro</h3>
-                        <p class="template-description">Design limpo e profissional com foco no conteúdo e usabilidade.</p>
-                        <div class="template-price">
-                            <div>
-                                <span class="price-current">R$ 39,90</span>
-                                <span class="price-original">R$ 69,90</span>
-                            </div>
-                            <button class="template-btn">Comprar</button>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Template 4 -->
-                <div class="template-card" data-category="photography">
-                    <div class="template-image">
-                        <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Photography Portfolio">
-                        <div class="template-overlay">
-                            <a href="#" class="template-link" title="Visualizar Demo">
-                                <i class="fas fa-eye"></i>
-                            </a>
-                            <a href="#" class="template-link" title="Ver Código">
-                                <i class="fas fa-code"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="template-content">
-                        <h3 class="template-title">Photo Gallery</h3>
-                        <p class="template-description">Portfólio visual com galeria fullscreen e lightbox para fotógrafos.</p>
-                        <div class="template-price">
-                            <div>
-                                <span class="price-current">R$ 59,90</span>
-                                <span class="price-original">R$ 109,90</span>
-                            </div>
-                            <button class="template-btn">Comprar</button>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Template 5 -->
-                <div class="template-card" data-category="dev">
-                    <div class="template-image">
-                        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Code Portfolio">
-                        <div class="template-overlay">
-                            <a href="#" class="template-link" title="Visualizar Demo">
-                                <i class="fas fa-eye"></i>
-                            </a>
-                            <a href="#" class="template-link" title="Ver Código">
-                                <i class="fas fa-code"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="template-content">
-                        <h3 class="template-title">Code Master</h3>
-                        <p class="template-description">Template técnico com syntax highlighting e seção de repositórios GitHub.</p>
-                        <div class="template-price">
-                            <div>
-                                <span class="price-current">R$ 49,90</span>
-                                <span class="price-original">R$ 89,90</span>
-                            </div>
-                            <button class="template-btn">Comprar</button>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Template 6 -->
-                <div class="template-card" data-category="design">
-                    <div class="template-image">
-                        <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Creative Portfolio">
-                        <div class="template-overlay">
-                            <a href="#" class="template-link" title="Visualizar Demo">
-                                <i class="fas fa-eye"></i>
-                            </a>
-                            <a href="#" class="template-link" title="Ver Código">
-                                <i class="fas fa-code"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="template-content">
-                        <h3 class="template-title">Creative Mind</h3>
-                        <p class="template-description">Design experimental com layouts quebrados e efeitos de parallax.</p>
-                        <div class="template-price">
-                            <div>
-                                <span class="price-current">R$ 64,90</span>
-                                <span class="price-original">R$ 119,90</span>
-                            </div>
-                            <button class="template-btn">Comprar</button>
-                        </div>
-                    </div>
+                    <h3 class="feature-title">Suporte 24h</h3>
+                    <p class="feature-description">Te ajudamos com qualquer dúvida sobre o template.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Testimonials Section -->
-    <section class="testimonials" id="testimonials">
+    <section class="testimonials">
         <div class="container">
             <h2 class="section-title">O que dizem nossos clientes</h2>
-            <p class="section-subtitle">Mais de 500 profissionais já transformaram seus portfólios com nossos templates</p>
-            
-            <div class="testimonials-container">
-                <div class="testimonial-card">
-                    <p class="testimonial-text">"O template Dark Developer foi exatamente o que eu precisava para mostrar meus projetos de forma profissional. Em menos de 1 hora já tinha meu portfólio online e recebi vários elogios de recrutadores!"</p>
-                    <div class="testimonial-author">
-                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Carlos Silva" class="author-avatar">
-                        <div class="author-info">
-                            <h4>Carlos Silva</h4>
-                            <p>Desenvolvedor Front-end</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card">
-                    <p class="testimonial-text">"Como designer, estou acostumada a exigir muito dos detalhes visuais. Fiquei impressionada com a qualidade do template Neon Design - o código é tão bem organizado quanto o design é bonito!"</p>
-                    <div class="testimonial-author">
-                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Ana Oliveira" class="author-avatar">
-                        <div class="author-info">
-                            <h4>Ana Oliveira</h4>
-                            <p>UI/UX Designer</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card">
-                    <p class="testimonial-text">"Comprei o pacote completo e valeu cada centavo. A documentação é tão clara que mesmo sendo iniciante em HTML consegui personalizar tudo exatamente como queria em poucas horas."</p>
-                    <div class="testimonial-author">
-                        <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Ricardo Fernandes" class="author-avatar">
-                        <div class="author-info">
-                            <h4>Ricardo Fernandes</h4>
-                            <p>Fotógrafo Profissional</p>
-                        </div>
+            <div class="testimonial-card">
+                <p class="testimonial-text">"O template Dark Portfolio foi exatamente o que eu precisava para mostrar meu trabalho. Recebi vários elogios e consegui novos clientes!"</p>
+                <div class="testimonial-author">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Carlos Silva" class="author-avatar">
+                    <div class="author-info">
+                        <h4>Carlos Silva</h4>
+                        <p>Desenvolvedor Front-end</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Pricing Section -->
-    <section class="pricing" id="pricing">
-        <div class="container">
-            <h2 class="section-title">Planos Acessíveis</h2>
-            <p class="section-subtitle">Escolha a opção que melhor atende suas necessidades</p>
-            
-            <div class="pricing-grid">
-                <div class="pricing-card">
-                    <h3 class="pricing-title">Template Único</h3>
-                    <div class="pricing-price">R$ 49,90</div>
-                    <span class="pricing-period">uma única compra</span>
-                    
-                    <div class="pricing-features">
-                        <div class="pricing-feature">1 template premium</div>
-                        <div class="pricing-feature">Documentação detalhada</div>
-                        <div class="pricing-feature">Suporte por e-mail</div>
-                        <div class="pricing-feature">Atualizações por 6 meses</div>
-                    </div>
-                    
-                    <button class="pricing-btn">Selecionar</button>
-                </div>
-                
-                <div class="pricing-card popular">
-                    <div class="popular-badge">RECOMENDADO</div>
-                    <h3 class="pricing-title">Pacote Completo</h3>
-                    <div class="pricing-price">R$ 129,90</div>
-                    <span class="pricing-period">uma única compra</span>
-                    
-                    <div class="pricing-features">
-                        <div class="pricing-feature">Todos os 6 templates</div>
-                        <div class="pricing-feature">Documentação premium</div>
-                        <div class="pricing-feature">Suporte prioritário</div>
-                        <div class="pricing-feature">Atualizações vitalícias</div>
-                        <div class="pricing-feature">Bônus: Currículo HTML</div>
-                    </div>
-                    
-                    <button class="pricing-btn">Selecionar</button>
-                </div>
-                
-                <div class="pricing-card">
-                    <h3 class="pricing-title">Personalizado</h3>
-                    <div class="pricing-price">R$ 199,90</div>
-                    <span class="pricing-period">+ personalização</span>
-                    
-                    <div class="pricing-features">
-                        <div class="pricing-feature">Pacote completo</div>
-                        <div class="pricing-feature">Personalização básica</div>
-                        <div class="pricing-feature">Hospedagem por 1 ano</div>
-                        <div class="pricing-feature">Domínio personalizado</div>
-                        <div class="pricing-feature">SEO básico</div>
-                    </div>
-                    
-                    <button class="pricing-btn">Selecionar</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section class="faq" id="faq">
-        <div class="container">
-            <h2 class="section-title">Perguntas Frequentes</h2>
-            <p class="section-subtitle">Tire suas dúvidas sobre nossos templates e processo de compra</p>
-            
-            <div class="faq-container">
-                <div class="faq-item">
-                    <div class="faq-question">Como recebo os arquivos após a compra?</div>
-                    <div class="faq-answer">
-                        <p>Imediatamente após a confirmação do pagamento, você receberá um e-mail com o link para download de todos os arquivos (HTML, CSS, JavaScript, imagens e documentação). O download também estará disponível em sua conta caso você crie uma em nosso site.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">Preciso saber programar para usar os templates?</div>
-                    <div class="faq-answer">
-                        <p>Não é necessário conhecimento avançado. Nossos templates são projetados para serem fáceis de personalizar - você só precisa editar textos e imagens nos locais indicados. Incluímos um vídeo tutorial passo a passo e documentação detalhada.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">Posso usar o template para vários clientes?</div>
-                    <div class="faq-answer">
-                        <p>Sim, mas cada uso comercial (para clientes diferentes) requer uma licença separada. Oferecemos descontos para compras em grande volume - entre em contato para saber mais.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">Os templates são responsivos?</div>
-                    <div class="faq-answer">
-                        <p>Sim, todos os nossos templates são 100% responsivos e foram testados em diversos dispositivos (smartphones, tablets e desktops com diferentes resoluções).</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">Qual é a política de reembolso?</div>
-                    <div class="faq-answer">
-                        <p>Oferecemos reembolso total em até 7 dias após a compra, desde que você não tenha feito download dos arquivos. Após o download, não é possível reembolsar devido à natureza digital do produto.</p>
+            <div class="testimonial-card">
+                <p class="testimonial-text">"Comprei o pacote completo e valeu cada centavo. Em menos de 1 hora já tinha meu portfólio online e profissional."</p>
+                <div class="testimonial-author">
+                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Ana Oliveira" class="author-avatar">
+                    <div class="author-info">
+                        <h4>Ana Oliveira</h4>
+                        <p>Designer UI/UX</p>
                     </div>
                 </div>
             </div>
@@ -1524,243 +695,122 @@
     </section>
 
     <!-- PIX Payment Section -->
-    <section class="pix-section" id="payment">
+    <section id="pix" class="pix-section">
         <div class="container">
             <div class="pix-container">
                 <h2 class="pix-title">Pagamento via PIX</h2>
-                <p>Todos os templates são liberados imediatamente após a confirmação do pagamento.</p>
+                <p>Rápido, seguro e sem taxas. O template é liberado imediatamente após a confirmação do pagamento.</p>
                 
                 <div class="pix-code" id="pixCode">
-                    10422308110 (Chave CPF)
+                    10422308110
                 </div>
                 
                 <div class="pix-qrcode">
-                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=00020126580014br.gov.bcb.pix0136104223081105204000053039865802BR5923KZIN%20TEMPLATES6009SAO%20PAULO62070503***6304E2CA" alt="QR Code PIX">
+                    <!-- Substitua pelo seu QR Code PIX real -->
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=00020126580014br.gov.bcb.pix0136104223081105204000053039865802BR5925SEU NOME6009SAO PAULO62070503***6304E2CA" alt="QR Code PIX">
                 </div>
                 
-                <div class="pix-instructions">
-                    <h4>Passo a Passo:</h4>
-                    <ol>
-                        <li>Efetue o pagamento via PIX usando a chave ou QR Code acima</li>
-                        <li>Envie o comprovante para:
-                            <div class="contact-method">
-                                <i class="fab fa-whatsapp"></i> 
-                                <a href="https://wa.me/5562992628445" target="_blank">(62) 99262-8445</a>
-                            </div>
-                        </li>
-                        <li>Receba o link de download em até 10 minutos</li>
-                    </ol>
-                </div>
+                <ol class="pix-instructions">
+                    <li>Copie a chave PIX acima ou escaneie o QR Code</li>
+                    <li>Abra seu aplicativo de banco e selecione pagar via PIX</li>
+                    <li>Cole a chave ou escaneie o QR Code</li>
+                    <li>Confirme o valor e finalize o pagamento</li>
+                    <li>Envie o comprovante para nosso WhatsApp (11) 98765-4321</li>
+                    <li>Receba o link de download automaticamente</li>
+                </ol>
                 
-                <div class="social-proof">
-                    <div class="testimonial-micro">
-                        <img src="https://randomuser.me/api/portraits/women/63.jpg" alt="Cliente satisfeito">
-                        <p>"Recebi meu template em 3 minutos após o pagamento!"</p>
-                    </div>
-                </div>
+                <button class="cta-button" onclick="copyPixKey()">
+                    <i class="fas fa-copy"></i> Copiar Chave PIX
+                </button>
             </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta">
-        <div class="container">
-            <h2 class="cta-title">Pronto para impressionar com seu novo portfólio?</h2>
-            <p class="cta-subtitle">Comece hoje mesmo e dê o próximo passo na sua carreira profissional</p>
-            <a href="#pricing" class="cta-btn">Escolher Meu Template</a>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer id="contact">
+    <footer>
         <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <a href="#" class="footer-logo">Kzin<span>Templates</span></a>
-                    <p class="footer-about">Templates premium criados por um desenvolvedor front-end apaixonado por design.</p>
-                    <div class="footer-social">
-                        <a href="https://www.instagram.com/kzinzxx7/" target="_blank" class="social-link">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="https://github.com/kzin82666-hub" target="_blank" class="social-link">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="https://wa.me/5562992628445" target="_blank" class="social-link">
-                            <i class="fab fa-whatsapp"></i>
-                        </a>
-                        <a href="mailto:kzin82666@gmail.com" class="social-link">
-                            <i class="fas fa-envelope"></i>
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="footer-col">
-                    <h3 class="footer-title">Templates</h3>
-                    <ul class="footer-links">
-                        <li><a href="#" class="footer-link">Para Desenvolvedores</a></li>
-                        <li><a href="#" class="footer-link">Para Designers</a></li>
-                        <li><a href="#" class="footer-link">Para Fotógrafos</a></li>
-                        <li><a href="#" class="footer-link">Minimalistas</a></li>
-                        <li><a href="#" class="footer-link">Todos os Templates</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-col">
-                    <h3 class="footer-title">Recursos</h3>
-                    <ul class="footer-links">
-                        <li><a href="#" class="footer-link">Documentação</a></li>
-                        <li><a href="#" class="footer-link">Tutoriais em Vídeo</a></li>
-                        <li><a href="#" class="footer-link">Blog</a></li>
-                        <li><a href="#" class="footer-link">Changelog</a></li>
-                        <li><a href="#" class="footer-link">Status</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-col">
-                    <h3 class="footer-title">Contato</h3>
-                    <div class="footer-contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <span>kzin82666@gmail.com</span>
-                    </div>
-                    <div class="footer-contact-item">
-                        <i class="fab fa-whatsapp"></i>
-                        <a href="https://wa.me/5562992628445" target="_blank">(62) 99262-8445</a>
-                    </div>
-                    <div class="footer-contact-item">
-                        <i class="fab fa-instagram"></i>
-                        <a href="https://www.instagram.com/kzinzxx7/" target="_blank">@kzinzxx7</a>
-                    </div>
-                    <div class="footer-contact-item">
-                        <i class="fab fa-github"></i>
-                        <a href="https://github.com/kzin82666-hub" target="_blank">kzin82666-hub</a>
-                    </div>
-                </div>
+            <div class="footer-links">
+                <a href="#" class="footer-link">Termos de Uso</a>
+                <a href="#" class="footer-link">Política de Privacidade</a>
+                <a href="#" class="footer-link">Contato</a>
             </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2023 Kzin Templates. Todos os direitos reservados. <a href="#">Termos de Serviço</a> | <a href="#">Política de Privacidade</a></p>
+            <div class="social-links">
+                <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-github"></i></a>
             </div>
+            <p class="copyright">© 2023 DevTemplates. Todos os direitos reservados.</p>
         </div>
     </footer>
 
-    <!-- WhatsApp Float -->
-    <div class="whatsapp-float">
-        <a href="https://wa.me/5562992628445" target="_blank">
-            <i class="fab fa-whatsapp"></i>
-        </a>
+    <!-- Modal -->
+    <div class="modal" id="purchaseModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Finalizar Compra</h3>
+                <button class="close-modal" onclick="closeModal()">&times;</button>
+            </div>
+            <div id="modalBody">
+                <!-- Conteúdo dinâmico -->
+            </div>
+        </div>
     </div>
 
-    <!-- JavaScript -->
     <script>
-        // Header scroll effect
-        window.addEventListener('scroll', function() {
-            const header = document.getElementById('header');
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
+        // Modal functions
+        function openModal(productName) {
+            const modal = document.getElementById('purchaseModal');
+            const modalBody = document.getElementById('modalBody');
+            
+            modalBody.innerHTML = `
+                <h4>${productName}</h4>
+                <p>Para finalizar sua compra:</p>
+                <ol>
+                    <li>Efetue o pagamento via PIX para a chave: <strong>10422308110</strong></li>
+                    <li>Envie o comprovante para nosso WhatsApp: (11) 98765-4321</li>
+                    <li>Você receberá o link de download em até 10 minutos</li>
+                </ol>
+                <button class="cta-button" onclick="copyPixKey()" style="margin-top: 20px;">
+                    <i class="fas fa-copy"></i> Copiar Chave PIX
+                </button>
+                <p style="margin-top: 20px; font-size: 0.9rem; color: #64748b;">
+                    Dúvidas? Chame no WhatsApp: <a href="https://wa.me/5511987654321">(11) 98765-4321</a>
+                </p>
+            `;
+            
+            modal.style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('purchaseModal').style.display = 'none';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('purchaseModal');
+            if (event.target == modal) {
+                closeModal();
             }
-        });
+        }
 
-        // Mobile menu toggle
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const navLinks = document.getElementById('navLinks');
-        
-        mobileMenuBtn.addEventListener('click', () => {
-            navLinks.classList.toggle('show');
-            mobileMenuBtn.innerHTML = navLinks.classList.contains('show') ? 
-                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
-        });
-
-        // Close mobile menu when clicking on a link
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', () => {
-                if (window.innerWidth <= 768) {
-                    navLinks.classList.remove('show');
-                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-                }
-            });
-        });
-
-        // FAQ accordion
-        const faqItems = document.querySelectorAll('.faq-item');
-        faqItems.forEach(item => {
-            const question = item.querySelector('.faq-question');
-            question.addEventListener('click', () => {
-                item.classList.toggle('active');
-            });
-        });
-
-        // Template filter
-        const filterBtns = document.querySelectorAll('.filter-btn');
-        const templateCards = document.querySelectorAll('.template-card');
-        
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                // Update active button
-                filterBtns.forEach(btn => btn.classList.remove('active'));
-                btn.classList.add('active');
-                
-                // Filter templates
-                const filter = btn.getAttribute('data-filter');
-                templateCards.forEach(card => {
-                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
-                        card.style.display = 'block';
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
-            });
-        });
-
-        // Copy PIX key
+        // Copy PIX key to clipboard
         function copyPixKey() {
             const pixKey = "10422308110";
             navigator.clipboard.writeText(pixKey).then(() => {
                 alert("Chave PIX copiada com sucesso! Agora é só colar no seu aplicativo de banco.");
             }).catch(err => {
                 console.error('Erro ao copiar: ', err);
-                alert("Não foi possível copiar a chave. Por favor, anote manualmente: " + pixKey);
             });
         }
 
         // Smooth scroll for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
+            anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    window.scrollTo({
-                        top: target.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
             });
-        });
-
-        // WhatsApp button animation
-        const whatsappBtn = document.querySelector('.whatsapp-float');
-        setInterval(() => {
-            whatsappBtn.style.transform = 'translateY(-5px)';
-            setTimeout(() => {
-                whatsappBtn.style.transform = 'translateY(0)';
-            }, 500);
-        }, 3000);
-
-        // Check screen size on resize
-        window.addEventListener('resize', () => {
-            if (window.innerWidth > 768) {
-                navLinks.style.display = 'flex';
-            } else {
-                navLinks.style.display = 'none';
-            }
-        });
-
-        // Initialize
-        document.addEventListener('DOMContentLoaded', function() {
-            // Set current year in footer
-            document.querySelector('.footer-bottom p').innerHTML = 
-                `&copy; ${new Date().getFullYear()} Kzin Templates. Todos os direitos reservados. <a href="#">Termos de Serviço</a> | <a href="#">Política de Privacidade</a>`;
         });
     </script>
 </body>
